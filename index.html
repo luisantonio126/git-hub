@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boas-vindas | No Code Startup</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,600;1,300&family=Syne:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:     #080808;
+      --text:   #F0EAE0;
+      --accent: #C8A55A;
+      --muted:  rgba(240, 234, 224, 0.32);
+      --glow:   rgba(200, 165, 90, 0.07);
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--bg);
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Syne', sans-serif;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Radial glow centrado */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(ellipse 65% 55% at 50% 50%, var(--glow) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Grain sutil */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.04;
+      pointer-events: none;
+      mix-blend-mode: overlay;
+    }
+
+    /* ── Layout principal ── */
+    .container {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+
+    /* No Code Startup */
+    .brand {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: var(--accent);
+      opacity: 0;
+      animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards 0.15s;
+    }
+
+    /* Linha vertical animada */
+    .rule {
+      width: 1px;
+      height: 0;
+      background: linear-gradient(to bottom, transparent, var(--accent), transparent);
+      margin: 2.2rem 0;
+      animation: grow 0.7s ease forwards 0.8s;
+    }
+
+    /* "Boas-vindas" — tipografia display */
+    .headline {
+      font-family: 'Cormorant Garant', serif;
+      font-weight: 300;
+      font-size: clamp(4.5rem, 14vw, 11rem);
+      line-height: 0.88;
+      color: var(--text);
+      letter-spacing: -0.025em;
+      opacity: 0;
+      animation: rise 1.1s cubic-bezier(0.16, 1, 0.3, 1) forwards 1s;
+    }
+
+    .headline em {
+      display: block;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--accent);
+      letter-spacing: -0.01em;
+    }
+
+    /* Subtítulo */
+    .sub {
+      font-family: 'Cormorant Garant', serif;
+      font-style: italic;
+      font-size: clamp(0.95rem, 2.2vw, 1.25rem);
+      font-weight: 300;
+      color: var(--muted);
+      margin-top: 2.8rem;
+      letter-spacing: 0.03em;
+      opacity: 0;
+      animation: rise 0.9s ease forwards 1.7s;
+    }
+
+    /* Rodapé fixo */
+    .footer {
+      position: fixed;
+      bottom: 2.2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.6rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--muted);
+      white-space: nowrap;
+      opacity: 0;
+      animation: appear 1s ease forwards 2.4s;
+    }
+
+    /* ── Animações ── */
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes grow {
+      from { height: 0; opacity: 0; }
+      to   { height: 52px; opacity: 1; }
+    }
+
+    @keyframes appear {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <span class="brand">No Code Startup</span>
+    <div class="rule"></div>
+    <h1 class="headline">
+      Boas
+      <em>-vindas.</em>
+    </h1>
+    <p class="sub">Você chegou ao lugar certo para construir o futuro.</p>
+  </div>
+
+  <p class="footer">Bem-vindo à sua jornada &nbsp;·&nbsp; No Code Startup &nbsp;·&nbsp; 2026</p>
+
+</body>
+</html>
